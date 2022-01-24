@@ -1,27 +1,43 @@
-# Tmdb
+# TMDB Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+## Usage
 
-## Development server
+to get started, make sure you have node installed on your system, and the clone this repository.
+
+Next, navigate in your terminal to the directory you cloned this, and install dependencies and run server.
+
+```sh
+npm install
+
+ng serve
+```
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+# Requirements:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 1.Movie List
 
-## Running end-to-end tests
+- [x] This screen should display a list of movies
+- [x] Each item should have the image and name.
+- [x] user can mark movies as “favorite”
+- [x] The entire list.
+- [x] A subset of the list, containing only those movies that the user has marked as “favorite”.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## 2.Movie Details
 
-## Further help
+- [x] clicking on a movie in the first screen should display a second screen containing the details of that movie.
+- [x] Display the movie image, name, description, release date, votes average and popularity on this screen.
+- [x] User can mark a movie as “favorite”
+- [x] User can rate a movie
+- [x] user can see movies reviews.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 3.Features
+
+- [x] implement state management - Redux.
+- [x] lazy modules.
+- [x] angular material.

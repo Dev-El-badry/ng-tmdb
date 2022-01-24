@@ -13,6 +13,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { MatListModule } from '@angular/material/list';
     MatExpansionModule,
     MatDividerModule,
     MatListModule,
+    MatAutocompleteModule,
   ],
   exports: [
     MatButtonModule,
@@ -46,6 +48,7 @@ import { MatListModule } from '@angular/material/list';
     MatExpansionModule,
     MatDividerModule,
     MatListModule,
+    MatAutocompleteModule,
   ],
 })
 export class MaterialModule {}

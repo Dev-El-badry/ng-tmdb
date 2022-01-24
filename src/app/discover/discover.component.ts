@@ -25,7 +25,7 @@ export class DiscoverComponent implements OnInit, AfterViewInit {
   movies$: Observable<Movie[]>;
   isLoading$: Observable<boolean>;
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
-  page: number = 1;
+  page: number;
 
   constructor(
     private store: Store<fromDiscover.State>,
@@ -37,6 +37,7 @@ export class DiscoverComponent implements OnInit, AfterViewInit {
     this.isLoading$ = this.store.select(fromRoot.getIsLoading);
     this.getItems();
     this.discoverService.getMovies();
+    this.page = 1;
   }
 
   ngAfterViewInit(): void {
