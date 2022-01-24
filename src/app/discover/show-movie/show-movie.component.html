@@ -39,3 +39,9 @@
     </mat-card>
   </div>
 </div>
+<br>
+<hr>
+<br>
+<ng-container *ngIf="reviews.length">
+  <app-reviews [reviews]="reviews"></app-reviews>
+</ng-container>

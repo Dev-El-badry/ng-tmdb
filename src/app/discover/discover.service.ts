@@ -7,10 +7,18 @@ import * as fromDiscover from './store/discover.reducer';
 import * as Discover from './store/discover.actions';
 import * as UI from '../core/ui/store/ui.actions';
 import { Movie } from './movie.model';
+import { Review } from './review.model';
 
 export interface MovieModel {
   page: number;
   results: Movie[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface ReviewModel {
+  page: number;
+  results: Review[];
   total_pages: number;
   total_results: number;
 }
@@ -47,6 +55,17 @@ export class DiscoverService {
       .subscribe((movieModel) => {
         this.store.dispatch(new UI.StopLoading());
         this.store.dispatch(new Discover.SetAvailableMovie(movieModel));
+      });
+  }
+
+  getReviews(movieId: number) {
+    this.http
+      .get<ReviewModel>(
+        `${this._root}movie/${movieId}/reviews?api_key=${this._token}`
+      )
+      .subscribe((reviewModel) => {
+        this.store.dispatch(new UI.StopLoading());
+        this.store.dispatch(new Discover.SetReviewsMovie(reviewModel.results));
       });
   }
 }

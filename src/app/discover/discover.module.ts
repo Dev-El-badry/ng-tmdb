@@ -9,9 +9,10 @@ import { ShowMovieComponent } from './show-movie/show-movie.component';
 import { StoreModule } from '@ngrx/store';
 import { movieReducer } from './store/discover.reducer';
 import { SharedModule } from '../_partials/shared.module';
+import { ReviewsComponent } from './show-movie/reviews/reviews.component';
 
 @NgModule({
-  declarations: [DiscoverComponent, ShowMovieComponent],
+  declarations: [DiscoverComponent, ShowMovieComponent, ReviewsComponent],
   imports: [
     CommonModule,
     DiscoverRoutingModule,

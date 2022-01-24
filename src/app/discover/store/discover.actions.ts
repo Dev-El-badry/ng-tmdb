@@ -1,8 +1,11 @@
-import {Action} from '@ngrx/store';
+import { Action } from '@ngrx/store';
 import { Movie } from '../movie.model';
+import { Review } from '../review.model';
 
-export const SET_AVAILABLE_MOVIES  = '[Movies] set available movies';
+export const SET_AVAILABLE_MOVIES = '[Movies] set available movies';
 export const SET_AVAILABLE_MOVIE = '[Movie] set available movie';
+
+export const SET_REVIEWS = '[Reviews] set reviews movie';
 
 export class SetAvailableMovies implements Action {
   readonly type = SET_AVAILABLE_MOVIES;
@@ -16,5 +19,13 @@ export class SetAvailableMovie implements Action {
   constructor(public payload: Movie) {}
 }
 
+export class SetReviewsMovie implements Action {
+  readonly type = SET_REVIEWS;
 
-export type MovieActions = SetAvailableMovies | SetAvailableMovie;
+  constructor(public payload: Review[]) {}
+}
+
+export type MovieActions =
+  | SetAvailableMovies
+  | SetAvailableMovie
+  | SetReviewsMovie;
