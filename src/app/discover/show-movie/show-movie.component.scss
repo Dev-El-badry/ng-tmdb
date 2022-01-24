@@ -1,5 +1,6 @@
 .show {
-  &__left {}
+  &__left {
+  }
   &__right {
     margin-left: 2rem;
     width: 100%;
@@ -12,13 +13,12 @@
 
   &__img {
     width: 100%;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
   }
 
   &__title {
     margin-top: 2rem;
     font-size: 4rem;
-
   }
 
   &__list {
@@ -32,7 +32,7 @@
   &__item {
     display: flex;
     align-items: center;
-    
+
     &:not(:last-child) {
       margin-bottom: 2rem;
     }
@@ -47,4 +47,10 @@
       font-weight: 500;
     }
   }
+}
+
+.reviews {
+  margin-top: 2rem;
+  border-top: var(--line);
+  padding-top: 2rem;
 }

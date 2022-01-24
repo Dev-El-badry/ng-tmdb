@@ -68,4 +68,19 @@ export class DiscoverService {
         this.store.dispatch(new Discover.SetReviewsMovie(reviewModel.results));
       });
   }
+
+  addRate(movieId: number, rate: number) {
+    if (isNaN(rate)) return;
+
+    const body = JSON.stringify({
+      value: rate,
+    });
+    return this.http.post<{ status_message: string; status_code: number }>(
+      `${this._root}movie/${movieId}/rating?api_key=${this._token}&session_id=${this._session}`,
+      body,
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      }
+    );
+  }
 }

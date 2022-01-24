@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DiscoverService } from '../../discover.service';
 import { Review } from '../../review.model';
 
 @Component({

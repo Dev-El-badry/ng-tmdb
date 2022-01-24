@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { DiscoverService } from '../discover.service';
 import { Movie } from '../movie.model';
 import { Review } from '../review.model';
 import * as fromDiscover from '../store/discover.reducer';
+import { AddReviewComponent } from './reviews/add-review/add-review.component';
 
 @Component({
   selector: 'app-show-movie',
@@ -19,7 +21,8 @@ export class ShowMovieComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private discoverService: DiscoverService,
-    private store: Store<fromDiscover.State>
+    private store: Store<fromDiscover.State>,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +52,16 @@ export class ShowMovieComponent implements OnInit {
       if (review) {
         this.reviews = review;
       }
+    });
+  }
+
+  addRate() {
+    const dialogRef = this.dialog.open(AddReviewComponent, {
+      data: { movieId: this.movieId },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
     });
   }
 }

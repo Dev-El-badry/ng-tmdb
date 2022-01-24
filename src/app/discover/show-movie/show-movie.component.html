@@ -28,20 +28,20 @@
     </ul>
   </div>
   <div class="show__right">
-    <mat-card class="show__card">
-      <h2>Overview:</h2>
+    <mat-card class="show__card" fxLayout="column" fxLayoutAlign="space-between start">
 
       <mat-card-content>
+        <h2>Overview:</h2>
         <p>
           {{movie.overview}}
         </p>
+
       </mat-card-content>
+      <button mat-raised-button color="primary" (click)="addRate()">rate a movie</button>
     </mat-card>
   </div>
 </div>
-<br>
-<hr>
-<br>
-<ng-container *ngIf="reviews.length">
+
+<section *ngIf="reviews.length" class="reviews">
   <app-reviews [reviews]="reviews"></app-reviews>
-</ng-container>
+</section>
