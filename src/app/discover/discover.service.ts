@@ -36,10 +36,12 @@ export class DiscoverService {
     private store: Store<fromDiscover.State>
   ) {}
 
-  getMovies() {
+  getMovies(page = 1) {
     this.store.dispatch(new UI.StartLoading());
     this.http
-      .get<MovieModel>(`${this._root}movie/top_rated?api_key=${this._token}`)
+      .get<MovieModel>(
+        `${this._root}movie/top_rated?api_key=${this._token}&page=${page}`
+      )
       .subscribe((movieModel) => {
         this.store.dispatch(new UI.StopLoading());
         this.store.dispatch(

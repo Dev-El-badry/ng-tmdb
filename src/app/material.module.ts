@@ -12,6 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { MatDividerModule } from '@angular/material/divider';
     ScrollingModule,
     MatExpansionModule,
     MatDividerModule,
+    MatListModule,
   ],
   exports: [
     MatButtonModule,
@@ -43,6 +45,7 @@ import { MatDividerModule } from '@angular/material/divider';
     ScrollingModule,
     MatExpansionModule,
     MatDividerModule,
+    MatListModule,
   ],
 })
 export class MaterialModule {}

@@ -1,21 +1,9 @@
-<section class="discover" *ngIf="movies.length">
-  <div class="discover__box" *ngFor="let movie of movies">
-    <div class="discover__item">
-      <app-movie-card [movie]="movie"></app-movie-card>
-    </div>
-  </div>
-</section>
-
-<!-- <div class="discover">
-
-
-  <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="discover__viewport">
-    <div *cdkVirtualFor="let item of items" class="discover__list">
-    
+<cdk-virtual-scroll-viewport #scroller [itemSize]="196" class="content">
+  <section class="discover">
+    <div class="discover__box" *cdkVirtualFor="let movie of movies$|async">
       <div class="discover__item">
-
-        <app-movie-card ></app-movie-card>
+        <app-movie-card [movie]="movie"></app-movie-card>
       </div>
     </div>
-  </cdk-virtual-scroll-viewport>
-</div> -->
+  </section>
+</cdk-virtual-scroll-viewport>

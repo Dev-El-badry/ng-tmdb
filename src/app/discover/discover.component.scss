@@ -11,7 +11,7 @@
 //   &__viewport {
 //     width: 100%;
 //     height: 90rem;
-      
+
 //     &::-webkit-scrollbar {
 //       display: none;
 //     }
@@ -24,4 +24,9 @@
   &__item {
     margin-bottom: 2rem;
   }
+}
+
+.content {
+  height: 100vh;
+  overflow: auto;
 }

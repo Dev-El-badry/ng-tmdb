@@ -27,9 +27,11 @@ const initialState: MovieState = {
 export function movieReducer(state = initialState, action: MovieActions) {
   switch (action.type) {
     case SET_AVAILABLE_MOVIES:
+      const data = [...state.availableMovies].concat(action.payload);
+
       return {
         ...state,
-        availableMovies: action.payload,
+        availableMovies: data,
       };
     case SET_AVAILABLE_MOVIE:
       return {
