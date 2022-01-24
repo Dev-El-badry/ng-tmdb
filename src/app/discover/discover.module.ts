@@ -4,22 +4,19 @@ import { CommonModule } from '@angular/common';
 import { DiscoverRoutingModule } from './discover-routing.module';
 import { DiscoverComponent } from './discover.component';
 import { MaterialModule } from '../material.module';
-import { MovieCardComponent } from '../_partials/movie-card/movie-card.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShowMovieComponent } from './show-movie/show-movie.component';
 import { StoreModule } from '@ngrx/store';
 import { movieReducer } from './store/discover.reducer';
-import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../_partials/shared.module';
 
 @NgModule({
-  declarations: [DiscoverComponent, MovieCardComponent, ShowMovieComponent],
+  declarations: [DiscoverComponent, ShowMovieComponent],
   imports: [
     CommonModule,
     DiscoverRoutingModule,
-    MaterialModule,
-    FlexLayoutModule,
     StoreModule.forFeature('discover', movieReducer),
-    HttpClientModule
-  ]
+    SharedModule,
+  ],
 })
-export class DiscoverModule { }
+export class DiscoverModule {}

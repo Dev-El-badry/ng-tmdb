@@ -2,18 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   isAuth$: Observable<boolean>;
   list = [];
-  constructor(
-    private router: Router
-  ) { }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.renderList();
@@ -24,16 +21,15 @@ export class HeaderComponent implements OnInit {
       {
         title: 'Movies',
         action: () => {
-          this.router.navigateByUrl('/')
-        }
+          this.router.navigateByUrl('/');
+        },
       },
       {
-        title: 'Your Favorites',
+        title: 'Favorite Movies',
         action: () => {
-          this.router.navigateByUrl('/')
-        }
-      }
+          this.router.navigateByUrl('/favorites');
+        },
+      },
     ];
   }
-
 }

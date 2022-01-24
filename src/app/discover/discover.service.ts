@@ -1,14 +1,14 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { environment } from "src/environments/environment";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { environment } from 'src/environments/environment';
 
 import * as fromDiscover from './store/discover.reducer';
 import * as Discover from './store/discover.actions';
 import * as UI from '../core/ui/store/ui.actions';
-import { Movie } from "./movie.model";
+import { Movie } from './movie.model';
 
-interface MovieModel {
+export interface MovieModel {
   page: number;
   results: Movie[];
   total_pages: number;
@@ -16,11 +16,12 @@ interface MovieModel {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DiscoverService {
   private _root = environment.baseUrl;
   private _token = environment.apiToken;
+  private _session = environment.session;
 
   constructor(
     private http: HttpClient,
@@ -29,10 +30,13 @@ export class DiscoverService {
 
   getMovies() {
     this.store.dispatch(new UI.StartLoading());
-    this.http.get<MovieModel>(`${this._root}movie/top_rated?api_key=${this._token}`)
-      .subscribe(movieModel => {
+    this.http
+      .get<MovieModel>(`${this._root}movie/top_rated?api_key=${this._token}`)
+      .subscribe((movieModel) => {
         this.store.dispatch(new UI.StopLoading());
-        this.store.dispatch(new Discover.SetAvailableMovies(movieModel.results));
+        this.store.dispatch(
+          new Discover.SetAvailableMovies(movieModel.results)
+        );
       });
   }
 }

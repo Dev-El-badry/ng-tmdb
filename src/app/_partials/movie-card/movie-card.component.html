@@ -1,22 +1,27 @@
 <mat-card fxLayout="row no-wrap" fxLayoutAlign="start start" class="movie" color="primary" *ngIf="movie">
-  <img [routerLink]="['/', 'show', movie.id]" fxFlex="25%"  class="movie__img" [src]="'https://image.tmdb.org/t/p/w500/'+movie.backdrop_path" alt="Photo of a Shiba Inu">
+  <img [routerLink]="['/', 'show', movie.id]" fxFlex="25%" class="movie__img"
+    [src]="'https://image.tmdb.org/t/p/w500/'+movie.backdrop_path" alt="Photo of a Shiba Inu">
 
   <mat-card-content class="movie__content" fxFlex fxLayout="column" fxLayoutAlign="start start">
     <div class="movie__top">
-      <mat-card-title  >
+      <mat-card-title>
         <a [routerLink]="['/', 'show', movie.id]">{{ movie.title }}</a>
-        </mat-card-title>
+
+        <button mat-icon-button class="movie__fav" color="warn" (click)="addToFavorite(movie.id)" *ngIf="!del">
+          <mat-icon>favorite_border</mat-icon>
+        </button>
+        <button mat-icon-button class="movie__fav" color="warn" (click)="deleteFav(movie.id)" *ngIf="del">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-title>
       <mat-card-subtitle>{{ movie.release_date }}</mat-card-subtitle>
-  
+
       <p>
         {{ movie.overview }}
       </p>
     </div>
-    
-    <button mat-flat-button class="movie__fav" color="warn">
-      <mat-icon >favorite_border</mat-icon>
-      Add To Favorite
-    </button>
+
+
   </mat-card-content>
 
 </mat-card>

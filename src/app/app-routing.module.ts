@@ -13,6 +13,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./discover/discover.module').then((m) => m.DiscoverModule),
   },
+  { path: 'favorites', loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesModule) },
 ];
 
 @NgModule({

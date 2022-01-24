@@ -19,7 +19,7 @@ export class DiscoverComponent implements OnInit {
   constructor(
     private store: Store<fromDiscover.State>,
     private discoverService: DiscoverService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.isLoading$ = this.store.select(fromRoot.getIsLoading);
@@ -28,10 +28,8 @@ export class DiscoverComponent implements OnInit {
   }
 
   getItems() {
-    this.store.select(fromDiscover.getAvailableMovies).subscribe(movies => {
-      if(movies.length)
-        this.movies = movies;
+    this.store.select(fromDiscover.getAvailableMovies).subscribe((movies) => {
+      if (movies.length) this.movies = movies;
     });
   }
-
 }
