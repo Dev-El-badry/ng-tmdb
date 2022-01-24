@@ -39,4 +39,14 @@ export class DiscoverService {
         );
       });
   }
+
+  getMovie(movieId: number) {
+    this.store.dispatch(new UI.StartLoading());
+    this.http
+      .get<Movie>(`${this._root}movie/${movieId}?api_key=${this._token}`)
+      .subscribe((movieModel) => {
+        this.store.dispatch(new UI.StopLoading());
+        this.store.dispatch(new Discover.SetAvailableMovie(movieModel));
+      });
+  }
 }

@@ -1,11 +1,11 @@
 <mat-card fxLayout="row no-wrap" fxLayoutAlign="start start" class="movie" color="primary" *ngIf="movie">
-  <img [routerLink]="['/', 'show', movie.id]" fxFlex="25%" class="movie__img"
+  <img (click)="showMovie(movie.id)" fxFlex="25%" class="movie__img"
     [src]="'https://image.tmdb.org/t/p/w500/'+movie.backdrop_path" alt="Photo of a Shiba Inu">
 
   <mat-card-content class="movie__content" fxFlex fxLayout="column" fxLayoutAlign="start start">
     <div class="movie__top">
       <mat-card-title>
-        <a [routerLink]="['/', 'show', movie.id]">{{ movie.title }}</a>
+        <a (click)="showMovie(movie.id)">{{ movie.title }}</a>
 
         <button mat-icon-button class="movie__fav" color="warn" (click)="addToFavorite(movie.id)" *ngIf="!del">
           <mat-icon>favorite_border</mat-icon>

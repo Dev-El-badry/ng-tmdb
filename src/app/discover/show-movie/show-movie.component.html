@@ -1,6 +1,6 @@
 <div class="show" fxLayout="row" *ngIf="movie">
   <div class="show__left" fxFlex="40%">
-    <img  class="show__img" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <img class="show__img" [src]="'https://image.tmdb.org/t/p/w500/'+movie.backdrop_path" [alt]="movie.title">
 
     <h2 class="show__title">
       {{ movie.title }}
@@ -10,12 +10,12 @@
       <li class="show__item">
         <mat-icon class="show__item-icon">group</mat-icon>
         <span class="show__item-text">
-          Popularity:  {{ movie.popularity }}
+          Popularity: {{ movie.popularity }}
         </span>
       </li>
       <li class="show__item">
         <mat-icon class="show__item-icon">event</mat-icon>
-        <span class="show__item-text">Release Date:  {{ movie.release_date }}</span>
+        <span class="show__item-text">Release Date: {{ movie.release_date }}</span>
       </li>
       <li class="show__item">
         <mat-icon class="show__item-icon">poll</mat-icon>
@@ -33,7 +33,7 @@
 
       <mat-card-content>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat expedita vitae dignissimos modi nisi laborum rem delectus corrupti molestiae blanditiis tempore omnis recusandae unde, obcaecati dolore, esse nostrum cupiditate culpa.
+          {{movie.overview}}
         </p>
       </mat-card-content>
     </mat-card>

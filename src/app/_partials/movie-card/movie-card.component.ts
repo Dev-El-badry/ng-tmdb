@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UiService } from '../../core/ui/ui.service';
 import { Movie } from '../../discover/movie.model';
 import { FavoritesService } from '../../favorites/favorites.service';
@@ -14,7 +15,8 @@ export class MovieCardComponent implements OnInit {
   isLoading: boolean;
   constructor(
     private uiService: UiService,
-    private favService: FavoritesService
+    private favService: FavoritesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -35,5 +37,9 @@ export class MovieCardComponent implements OnInit {
 
   deleteFav(movieId: number) {
     this.favService.deleteFavMove(movieId);
+  }
+
+  showMovie(movieId: number) {
+    this.router.navigateByUrl(`/show/${movieId}`);
   }
 }
