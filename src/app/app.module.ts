@@ -9,6 +9,7 @@ import { HeaderComponent } from './_partials/header/header.components';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducer';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { reducers } from './app.reducer';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

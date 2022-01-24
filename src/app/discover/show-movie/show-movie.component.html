@@ -1,29 +1,29 @@
-<div class="show" fxLayout="row">
+<div class="show" fxLayout="row" *ngIf="movie">
   <div class="show__left" fxFlex="40%">
     <img  class="show__img" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
 
     <h2 class="show__title">
-      Shiba Inu
+      {{ movie.title }}
     </h2>
 
     <ul class="show__list">
       <li class="show__item">
         <mat-icon class="show__item-icon">group</mat-icon>
         <span class="show__item-text">
-          Popularity: 
+          Popularity:  {{ movie.popularity }}
         </span>
       </li>
       <li class="show__item">
         <mat-icon class="show__item-icon">event</mat-icon>
-        <span class="show__item-text">Release Date:</span>
+        <span class="show__item-text">Release Date:  {{ movie.release_date }}</span>
       </li>
       <li class="show__item">
         <mat-icon class="show__item-icon">poll</mat-icon>
-        <span class="show__item-text">Vote Average</span>
+        <span class="show__item-text">Vote Average: {{ movie.vote_average }}</span>
       </li>
       <li class="show__item">
         <mat-icon class="show__item-icon">campaign</mat-icon>
-        <span class="show__item-text">Vote Count</span>
+        <span class="show__item-text">Vote Count: {{ movie.vote_count }}</span>
       </li>
     </ul>
   </div>

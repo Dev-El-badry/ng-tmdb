@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShowMovieComponent } from './show-movie/show-movie.component';
 import { StoreModule } from '@ngrx/store';
 import { movieReducer } from './store/discover.reducer';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [DiscoverComponent, MovieCardComponent, ShowMovieComponent],
@@ -17,7 +18,8 @@ import { movieReducer } from './store/discover.reducer';
     DiscoverRoutingModule,
     MaterialModule,
     FlexLayoutModule,
-    StoreModule.forFeature('discover', movieReducer)
+    StoreModule.forFeature('discover', movieReducer),
+    HttpClientModule
   ]
 })
 export class DiscoverModule { }
