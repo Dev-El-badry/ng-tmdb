@@ -1,0 +1,27 @@
+// .discover {
+//   &__list {
+//     height: 21rem;
+//   }
+
+//   &__item {
+//     // height: 20rem;
+//     // margin-bottom: 2rem;
+//   }
+
+//   &__viewport {
+//     width: 100%;
+//     height: 90rem;
+      
+//     &::-webkit-scrollbar {
+//       display: none;
+//     }
+
+//     -ms-overflow-style: none;  /* IE and Edge */
+//     scrollbar-width: none;  /* Firefox */
+//   }
+// }
+.discover {
+  &__item {
+    margin-bottom: 2rem;
+  }
+}
